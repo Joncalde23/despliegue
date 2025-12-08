@@ -4,8 +4,12 @@ import streamlit as st
 
 # Leer los datos del archivo CSV
 car_data = pd.read_csv('vehicles_us.csv')
+st.set_page_config(page_title='Análisis de Anuncios de Venta de Coches', layout='wide')
+st.title('Análisis de Anuncios de Venta de Coches')
+st.header('Dataframe:')
+st.dataframe(car_data)
 
-# Crear un botón en la aplicación Streamlit
+'''# Crear un botón en la aplicación Streamlit
 hist_button = st.button('Construir histograma')
 
 # Lógica a ejecutar cuando se hace clic en el botón
@@ -22,4 +26,4 @@ if hist_button:
 
     # Mostrar el gráfico Plotly interactivo en la aplicación Streamlit
     # 'use_container_width=True' ajusta el ancho del gráfico al contenedor
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, use_container_width=True)'''
