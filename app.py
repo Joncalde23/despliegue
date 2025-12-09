@@ -5,6 +5,7 @@ import streamlit as st
 # Leer los datos del archivo CSV
 car_data = pd.read_csv('vehicles_us.csv')
 st.set_page_config(page_title='Análisis de Anuncios de Venta de Coches', layout='wide')
+
 st.title('Análisis de Anuncios de Venta de Coches')
 st.header('Dataframe:')
 st.dataframe(car_data)
