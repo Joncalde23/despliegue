@@ -45,3 +45,25 @@ if disp_button:
 
     # Mostrar el gráfico Plotly interactivo en la aplicación Streamlit
     st.plotly_chart(fig_disp, use_container_width=True)
+
+show_plot = st.checkbox('Mostrar gráfico de líneas de precios promedio por tipo de vehiculo')
+if show_plot:
+    st.write('Creación de un gráfico de líneas para el precio promedio por tipo de vehiculo de los anuncios de venta de coches')
+
+    
+
+    # Agrupar los datos por año y calcular el precio promedio
+    avg_price_per_year = car_data.groupby('type')['price'].mean().reset_index()
+
+    # Crear un gráfico de líneas utilizando plotly.graph_objects
+    fig_line = go.Figure(data=go.Scatter(
+        x=avg_price_per_year['type'],
+        y=avg_price_per_year['price'],
+        mode='lines+markers'
+    ))
+
+    # Opcional: Puedes añadir un título al gráfico si lo deseas
+    fig_line.update_layout(title_text='Precio Promedio por tipo de vehiculo')
+
+    # Mostrar el gráfico Plotly interactivo en la aplicación Streamlit
+    st.plotly_chart(fig_line, use_container_width=True)
